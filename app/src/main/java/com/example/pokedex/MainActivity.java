@@ -1,7 +1,5 @@
 package com.example.pokedex;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.widget.Toolbar;
@@ -9,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -23,11 +22,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+import android.os.Bundle;
+import android.widget.Button;
+
+
+
+public class MainActivity extends AppCompatActivity {
+    Button birds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        birds=findViewById(R.id.button1);
 
 
         Home_Fragment = new homefragment();
@@ -71,5 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
         return false;
+
+
     }
 }
