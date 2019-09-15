@@ -9,11 +9,14 @@
 
         <item
 
-            android:title="Edit Profile" />
+            android:title="Register New Species"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:id="@+id/registerspecies"/>
 
         <item
 
-            android:title="Your Registrations" />
+            android:title="Enquiry For Registered"
+            android:icon="@drawable/ic_info_black_24dp"/>
 
 
 
@@ -27,15 +30,18 @@
 
             <item
                 android:id="@+id/nav_report"
-                android:title="Report" />
+                android:title="Report"
+                android:icon="@drawable/ic_report_problem_black_24dp"/>
 
             <item
                 android:id="@+id/nav_help"
-                android:title="Help" />
+                android:title="Help"
+                android:icon="@drawable/ic_help_black_24dp"/>
 
             <item
                 android:id="@+id/nav_feedback"
-                android:title="Feedback" />
+                android:title="Feedback"
+                android:icon="@drawable/ic_feedback_black_24dp"/>
 
 
 

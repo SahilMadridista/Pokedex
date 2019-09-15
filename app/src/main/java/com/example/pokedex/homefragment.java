@@ -15,6 +15,11 @@ import android.widget.Button;
 public class homefragment extends Fragment {
 
     private Button birdsbutton;
+    private Button animalssbutton;
+    private Button inscetsbutton;
+    private Button reptilesbutton;
+    private Button marinesbutton;
+    private Button plantsbutton;
 
 
     public homefragment() {
@@ -36,13 +41,51 @@ public class homefragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        birdsbutton = view.findViewById(R.id.button1);
+        birdsbutton = view.findViewById(R.id.BirdsButtom);
+        animalssbutton = view.findViewById(R.id.AnimalsButton);
+        inscetsbutton = view.findViewById(R.id.InscetsButton);
+        reptilesbutton = view.findViewById(R.id.ReptilesButton);
+        marinesbutton = view.findViewById(R.id.MarinesButton);
+        plantsbutton = view.findViewById(R.id.PlantsButton);
 
         birdsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startActivity(new Intent(getContext(),CardViewListActivity.class));
+            }
+        });
+
+        animalssbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        inscetsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        reptilesbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        marinesbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        plantsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
