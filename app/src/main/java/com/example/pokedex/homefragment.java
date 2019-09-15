@@ -1,6 +1,7 @@
 package com.example.pokedex;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
 
 
 public class homefragment extends Fragment {
@@ -20,6 +22,8 @@ public class homefragment extends Fragment {
     private Button reptilesbutton;
     private Button marinesbutton;
     private Button plantsbutton;
+
+    androidx.gridlayout.widget.GridLayout gridlayout;
 
 
     public homefragment() {
@@ -47,6 +51,13 @@ public class homefragment extends Fragment {
         reptilesbutton = view.findViewById(R.id.ReptilesButton);
         marinesbutton = view.findViewById(R.id.MarinesButton);
         plantsbutton = view.findViewById(R.id.PlantsButton);
+
+        gridlayout = view.findViewById(R.id.gridLayout);
+        gridlayout.setBackgroundResource(R.drawable.gradient_files);
+        AnimationDrawable animationDrawable = (AnimationDrawable)gridlayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(2000);
+        animationDrawable.start();
 
         birdsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,4 +102,9 @@ public class homefragment extends Fragment {
         });
 
     }
+
+
+
+
+
 }
