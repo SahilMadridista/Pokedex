@@ -19,7 +19,13 @@ public class CardViewListActivity extends AppCompatActivity {
 
         ArrayList<CardItems> cardItemsList=new ArrayList<>();
         cardItemsList.add(new CardItems(R.drawable.lol,"Bird1"));
-        cardItemsList.add(new CardItems(R.drawable.ic_format_bold_black_24dp,"Bird2"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird2"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird3"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird4"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird5"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird6"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird7"));
+        cardItemsList.add(new CardItems(R.drawable.lol,"Bird8"));
 
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
