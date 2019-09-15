@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private static FragmentManager fragmentManager;
     homefragment Home_Fragment;
-    
+    private long backpressedtime;
+    private Toast backtoast;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +70,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.registerspecies:
                 startActivity(new Intent(MainActivity.this,RegisterActivity.class));
 
-
-
         }
         return false;
 
-
     }
+
+    @Override
+    public void onBackPressed() {
+        if(backpressedtime+2000>System.currentTimeMillis()){
+            backtoast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else {
+            backtoast= Toast.makeText(MainActivity.this,
+                    "Press back again to exit",Toast.
+                            LENGTH_SHORT);
+            backtoast.show();
+
+        }
+        backpressedtime = System.currentTimeMillis();
+    }
+
 }
