@@ -54,8 +54,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     Spinner spinner;
 
     private FirebaseFirestore db;
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
     String userName, userPhone, userEmail, AnimalDescription;
     private static final int PICK_IMAGE=1;
     Uri imageUri;
@@ -140,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                 Toast.makeText(RegisterActivity.this, "User not Added " + e.toString(), Toast.LENGTH_SHORT).show();
                             }
                         });
+                uploadImage();
 
             }
         });
@@ -172,6 +173,41 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     }
 
 
+    private void uploadImage() {
+
+        if(imageUri != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            ref.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(RegisterActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(RegisterActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
+
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -182,6 +218,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
 
     }
 

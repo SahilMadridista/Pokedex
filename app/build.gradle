@@ -29,12 +29,32 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.firebase:firebase-firestore:20.1.0'
+    /*implementation 'com.google.firebase:firebase-firestore:20.1.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:9.2.1'*/
+    implementation 'com.google.android.gms:play-services-analytics:12.0.1'
+
+    implementation 'com.google.firebase:firebase-firestore:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-core:10.0.0'
+    implementation 'com.google.firebase:firebase-storage:10.0.1'
+
+
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-    implementation 'com.google.firebase:firebase-storage:9.2.1'
+
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
 }
 apply plugin: 'com.google.gms.google-services'
+
+configurations.all{
+    resolutionStrategy.eachDependency{ DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support'){
+            if(!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}
