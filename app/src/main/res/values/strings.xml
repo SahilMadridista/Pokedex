@@ -8,4 +8,17 @@
 
     <string name="navigation_drawer_close">Close navigation Drawer</string>
 
+
+    <string-array name="species_name">
+
+        <item>Select Category</item>
+        <item>Animal</item>
+        <item>Bird</item>
+        <item>Insect</item>
+        <item>Reptile</item>
+        <item>Marines</item>
+        <item>Plants</item>
+
+    </string-array>
+
 </resources>

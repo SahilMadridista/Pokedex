@@ -37,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:rowCount="3"
-                android:background="@color/silver">
+                android:background="@drawable/gradient_background">
 
                 <Button
                     android:id="@+id/AnimalsButton"
