@@ -33,5 +33,11 @@ public class CardViewListActivity extends AppCompatActivity {
         adapter=new RVAdapter(cardItemsList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+//        recyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener() {
+//            @Override
+//            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+//
+//            }
+//        });
     }
 }
