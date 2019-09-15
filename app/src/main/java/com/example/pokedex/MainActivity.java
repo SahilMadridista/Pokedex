@@ -1,18 +1,35 @@
 package com.example.pokedex;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Button;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private DrawerLayout drawer;
+    private static FragmentManager fragmentManager;
+    homefragment Home_Fragment;
+
+
 
 import android.os.Bundle;
 import android.widget.Button;
 
+
+
 public class MainActivity extends AppCompatActivity {
     Button birds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -49,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -56,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         switch (menuItem.getItemId()){
 
             case R.id.registerspecies:
+                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+
+
 
         }
         return false;
