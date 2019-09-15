@@ -3,27 +3,25 @@ package com.example.pokedex;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     private DrawerLayout drawer;
-    public static FragmentManager fragmentManager;
-    private Spinner spinner;
-
+    private static FragmentManager fragmentManager;
     homefragment Home_Fragment;
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+    
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -66,8 +65,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
 
             case R.id.registerspecies:
+                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+
+
 
         }
         return false;
+
+
     }
 }
