@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private static FragmentManager fragmentManager;
     homefragment Home_Fragment;
-
-    Button birds;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
